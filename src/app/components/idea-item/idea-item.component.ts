@@ -26,7 +26,7 @@ export class IdeaItemComponent implements OnInit, AfterViewInit {
 
   public charsCountText: string = '';
 
-  public get showWarning(): boolean{
+  public get showWarning(): boolean {
     return this._showWarning;
   }
 
@@ -49,7 +49,7 @@ export class IdeaItemComponent implements OnInit, AfterViewInit {
 
   public descriptionChanged(event: any): void {
     const newDescription = (<HTMLElement>event.target).textContent ?? '';
-    if (newDescription.length >= 140) {
+    if (newDescription.length > 140) {
       this._showWarning = true;
       this.charsCountText = newDescription.length > 120 ? `Chars too many ${-140 + newDescription.length}` : '';
       return;
@@ -62,18 +62,17 @@ export class IdeaItemComponent implements OnInit, AfterViewInit {
   public updateDescription(event: Event): void {
     this._showWarning = false;
     this.charsCountText = '';
-    const newDescription = (<HTMLElement>event.target).textContent ?? '';
+    let newDescription = (<HTMLElement>event.target).textContent ?? '';
+    newDescription = newDescription.substring(0, 140);
 
     console.log('previous description ' + this.idea.description);
     if (newDescription !== this.idea.description) {
       console.log('setting new description to ' + newDescription);
-
-      this.idea.description = newDescription.substring(0, 139);
+      this.idea.description = newDescription;
       this.idea.createdAt = new Date();
       this._ideaService.updateIdea(this.idea);
-
-      (<HTMLElement>event.target).textContent = newDescription;
     }
+    (<HTMLElement>event.target).textContent = newDescription;
   }
 
   private selectRandomColor(): void {
