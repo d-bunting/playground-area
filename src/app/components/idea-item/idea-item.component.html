@@ -1,0 +1,17 @@
+<div #item class="item">
+    <div class="item__toolbar">
+        <div class="item__close" (click)="close()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </div>
+    </div>
+    <div class="item__title">{{idea?.title}}</div>
+    <div #description class="item__description" contenteditable="true" class="item__description" (keydown)="descriptionChanged($event)"
+         (blur)="updateDescription($event)">{{idea?.description}}</div>
+
+    <span class="item__chars" *ngIf="charsCountText !== ''" [ngClass]="{'warning' : showWarning}">
+        {{charsCountText}}
+    </span>
+    <span class="item__created">{{idea?.createdAt | date:'dd-MM-yy HH:mm'}}</span>
+</div>

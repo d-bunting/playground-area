@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    padding: 5px;
+
+    div {
+        display: inline-block;
+    }
+
+    .input {
+        font-size: 1.1rem;
+        border: 1px solid #b0b0b0;
+        border-radius: 3px;
+        outline: 0;
+
+        &__title {
+            width: 150px;
+            padding-left: 5px;
+        }
+
+        &__sort {
+            outline: 0;
+            padding-right: 5px;
+            margin: 0 10px;
+        }
+
+        &:hover {
+            border-color: #787878;
+        }
+    }
+
+    .icon {
+       
+        height: 36px;
+        > svg {
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+        }
+        &__add {
+            flex: 1;
+            color: #16a34a;
+            &:hover {
+                color: #22c55e;
+            }
+        }
+        &__clear {
+            color: #ef4444;
+            &:hover {
+                color: #f87171;
+            }
+        }
+    }
+}

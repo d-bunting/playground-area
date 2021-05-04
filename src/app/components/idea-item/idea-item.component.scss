@@ -1,0 +1,85 @@
+:host {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    margin: 5px;
+    width: 350px;
+    padding: 14px 14px 24px 14px;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .item {
+        &__title {
+            font-size: 1.3rem;
+            margin-right: 20px;
+            margin-bottom: 4px;
+        }
+
+        &__toolbar {
+            text-align: right;
+            display: inline-block;
+            position: absolute;
+            top: 6px;
+            right: 6px;
+        }
+
+        &__close {
+            width: 26px;
+            height: 26px;
+            display: inline-block;
+            cursor: pointer;
+            text-align: center;
+
+            > svg {
+                width: 24px;
+                height: 24px;
+                padding-top: 4px;
+            }
+
+            &:hover {
+                background-color: white;
+                color: var(--background-color);
+                border-radius: 15px;
+            }
+        }
+
+        &__description {
+            font-size: 1rem;
+            margin-left: -4px;
+            margin-bottom: 2px;
+            padding: 4px;
+            background-color: var(--background-color);
+            border: 1px solid var(--background-color);
+            border-radius: 3px;
+            outline: none;
+
+            &:focus,
+            &:hover {
+                outline: none;
+                border-color: white;
+            }
+        }
+
+        &__chars {
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            padding: 2px 4px;
+
+            &.warning {
+                background-color: red;
+                border-radius: 5px;
+            }
+        }
+
+        &__created {
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: 5px;
+            right: 14px;
+        }
+    }
+}
